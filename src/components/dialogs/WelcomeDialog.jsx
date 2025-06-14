@@ -1,5 +1,4 @@
 import { Box, Button, Dialog, DialogContent, DialogTitle, InputLabel, TextField, Typography, useTheme } from '@mui/material'
-import CloseIcon from '@mui/icons-material/Close';
 
 const WelcomeDialog = (props) => {
     const {dialogOpen,dialogClose} = props
