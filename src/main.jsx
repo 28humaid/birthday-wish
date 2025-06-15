@@ -4,14 +4,11 @@ import './index.css'
 import App from './App.jsx'
 import { ThemeProvider } from '@mui/material'
 import theme from './theme.jsx'
-import {BrowserRouter} from 'react-router-dom'
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter basename="/birthday-wish">
   <StrictMode>
     <ThemeProvider theme={theme}>
       <App/>
     </ThemeProvider>
-  </StrictMode>
-  </BrowserRouter>
+  </StrictMode>,
 )
