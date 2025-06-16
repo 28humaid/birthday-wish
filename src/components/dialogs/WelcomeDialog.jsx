@@ -1,10 +1,24 @@
 import { Box, Button, Dialog, DialogContent, Skeleton, TextField, Typography, useTheme} from '@mui/material'
 import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import {enteredUserName} from '../../features/userName/userNameSlice'
+import { useNavigate } from 'react-router-dom';
 
 const WelcomeDialog = (props) => {
     const {dialogOpen,dialogClose} = props
     const theme = useTheme()
     const [loading,setLoading] = useState(true)
+    const [name,setName] = useState("")
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const handleProceedClick = (value) =>{
+      // console.log(value);
+      dispatch(enteredUserName(value))
+      setName("")
+      dialogClose()
+      navigate('/wish-part')
+    }
   return (
     <Dialog open={dialogOpen} onClose={dialogClose}
       sx={{
@@ -72,6 +86,11 @@ const WelcomeDialog = (props) => {
                     height:'14px'
                   }
                 }}
+                value={name}
+                onChange={(e)=>{
+                  setName(e.target.value)
+                  // console.log(name)
+                }}
               />
             </Box>
 
@@ -87,6 +106,7 @@ const WelcomeDialog = (props) => {
                   color:'#ffec4e',
                   textTransform:'none',
                 }}
+                onClick={()=>{handleProceedClick(name)}}
               >
                 Proceed
               </Button>

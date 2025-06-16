@@ -2,7 +2,7 @@ import { Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
 
 const HerName = () => {
-    const [font,setFont] = useState('serif')
+    const [font,setFont] = useState('Edu NSW ACT Cursive')
         const fonts=['serif','Edu NSW ACT Cursive','monospace','sans-serif','Amarante','Noto Sans KR','Bebas Neue','Caprasimo','Noto Nastaliq Urdu','Alumni Sans SC','Sevillana','Dancing Script','Michroma','Kapakana']
     
         // font family change krne k liye
@@ -15,7 +15,7 @@ const HerName = () => {
                     setFont(fonts[randomIndex])
                     // console.log("Current font family : ",fonts[randomIndex]);
                     
-                },300)
+                },280)
                 
                 return () => clearInterval(interval)
             },[])

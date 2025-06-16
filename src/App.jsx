@@ -4,6 +4,8 @@ import WelcomeDialog from './components/dialogs/WelcomeDialog'
 import { useState } from 'react'
 import WelcomeHeader from './components/WelcomeHeader'
 import HomeScreenButton from './components/HomeScreenButton'
+import { Route, Routes } from 'react-router-dom'
+import WishPart from './components/WishPart'
 
 function App() {
   const [open,setopen] = useState(false)
@@ -18,16 +20,35 @@ function App() {
   }
 
   return (
-    <>
-      <Box sx={{backgroundColor:theme.palette.background.default, height:'100vh',width:'100vw',display:'flex',flexDirection:'column', gap:4,alignItems:'center', justifyContent:'center'}}>
+    <Routes>
+      <Route path="/" element={
+        <>
+          <Box sx={{backgroundColor:theme.palette.background.default, height:'100vh',width:'100vw',display:'flex',flexDirection:'column', gap:4,alignItems:'center', justifyContent:'center'}}>
 
-        <WelcomeHeader/>
+          
+            <img
+              src="/birthday-wish/images/homePageImage.png"
+              style={{
+                maxWidth:'25%',
+                height:'auto',
+                borderRadius: '70%',
+                boxShadow: '0 0 5px #ffec4e, 0 0 10px #ffec4e, 0 0 30px rgba(255, 236, 78, 0.5)', // Glowing shadow
+                // display: loading ? "none":"block",
+              }}
+              // onLoad={()=>setLoading(false)}
+              // onError={()=>setLoading(false)}
+            />
 
-        <HomeScreenButton onClick={handleOpenClick}/>
-      </Box>
+            <WelcomeHeader/>
 
-      <WelcomeDialog dialogOpen={open} dialogClose={handleCloseClick}/>
-    </>
+            <HomeScreenButton onClick={handleOpenClick}/>
+        </Box>
+
+        <WelcomeDialog dialogOpen={open} dialogClose={handleCloseClick}/>
+        </>
+      }/>
+      <Route path="/wish-part" element={<WishPart />} />
+      </Routes>
   )
 }
 
