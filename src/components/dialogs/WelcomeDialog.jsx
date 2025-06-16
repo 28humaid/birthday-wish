@@ -1,13 +1,16 @@
-import { Box, Button, Dialog, DialogContent, DialogTitle, InputLabel, TextField, Typography, useTheme } from '@mui/material'
+import { Box, Button, Dialog, DialogContent, Skeleton, TextField, Typography, useTheme} from '@mui/material'
+import { useState } from 'react'
 
 const WelcomeDialog = (props) => {
     const {dialogOpen,dialogClose} = props
     const theme = useTheme()
+    const [loading,setLoading] = useState(true)
   return (
     <Dialog open={dialogOpen} onClose={dialogClose}
       sx={{
         '& .MuiDialog-paper': {
           borderRadius: '16px', // Apply border radius to the Paper
+          boxShadow: '0 0 5px #ffec4e, 0 0 5px #ffec4e, 0 0 30px rgba(255, 236, 78, 0.5)', // Glowing shadow
         },
       }}
     >
@@ -23,13 +26,28 @@ const WelcomeDialog = (props) => {
           padding:0
           }}>
           <Box sx={{width:'100%',overflow:'hidden'}}>
+            {loading && (
+            <Skeleton
+              variant="rectangular"
+              sx={{
+                width: '255px',
+                height: '107px', // Adjust based on expected image size
+                borderRadius: '6px',
+                backgroundColor: 'rgba(255, 236, 78, 0.1)', // Subtle yellow tint
+                animation: 'wave', // MUI's default shimmer effect
+                boxShadow: '0 0 5px rgba(255, 236, 78, 0.3)', // Subtle glow
+              }}
+            />
+          )}
             <img
               src="/birthday-wish/images/whatIsYourname.jpg"
               style={{
                 maxWidth:'100%',
                 height:'auto',
-                // borderRadius:'6px'
+                display: loading ? "none":"block",
               }}
+              onLoad={()=>setLoading(false)}
+              onError={()=>setLoading(false)}
             />
           </Box>
           {/* Bottom Text Content */}
@@ -70,7 +88,7 @@ const WelcomeDialog = (props) => {
                   textTransform:'none',
                 }}
               >
-                Verify
+                Proceed
               </Button>
             </Box>
           </Box>
