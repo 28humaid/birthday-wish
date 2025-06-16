@@ -24,7 +24,7 @@ const WelcomeDialog = (props) => {
           }}>
           <Box sx={{width:'100%',overflow:'hidden'}}>
             <img
-              src="/images/whatIsYourname.jpg"
+              src="/birthday-wish/images/whatIsYourname.jpg"
               style={{
                 maxWidth:'100%',
                 height:'auto',

@@ -3,6 +3,7 @@ import {Box, Button, Typography, useTheme} from '@mui/material'
 import HeartIcon from './components/HeartIcon'
 import WelcomeDialog from './components/dialogs/WelcomeDialog'
 import { useState } from 'react'
+import WelcomeHeader from './components/WelcomeHeader'
 
 function App() {
   const [open,setopen] = useState(false)
@@ -19,7 +20,9 @@ function App() {
   return (
     <>
       <Box sx={{backgroundColor:theme.palette.background.default, height:'100vh',width:'100vw',display:'flex',flexDirection:'column', gap:2,alignItem:'center', justifyContent:'center'}}>
-        <Typography sx={{color:theme.palette.text.primary,textAlign:'center'}}>Hello Anion</Typography>
+        {/* Hello Anion wala text */}
+        <WelcomeHeader/>
+                
         <Button onClick={handleOpenClick}><HeartIcon/></Button>
       </Box>
       <WelcomeDialog dialogOpen={open} dialogClose={handleCloseClick}/>
