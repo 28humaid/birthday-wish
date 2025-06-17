@@ -11,7 +11,7 @@ const WishPart = () => {
     const theme = useTheme()
     
   return (
-    <Box sx={{backgroundColor:theme.palette.background.default, minHeight:'100vh',width:'100vw'}}>
+    <Box sx={{backgroundColor:theme.palette.background.default, minHeight:'100vh',padding:'5% 3%'}}>
     {userName === "sadaf" && <WishForHer/>}
     {userName !== "sadaf" && <WishForOthers/>}
     </Box>
