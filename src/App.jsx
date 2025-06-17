@@ -23,7 +23,7 @@ function App() {
     <Routes>
       <Route path="/" element={
         <>
-          <Box sx={{backgroundColor:theme.palette.background.default, height:'100vh',width:'100vw',display:'flex',flexDirection:'column', gap:4,alignItems:'center', justifyContent:'center'}}>
+          <Box sx={{backgroundColor:theme.palette.background.default, minHeight:'100vh',width:'100vw',display:'flex',flexDirection:'column', gap:4,alignItems:'center', justifyContent:'center'}}>
 
           
             <img
