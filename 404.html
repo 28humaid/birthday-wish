@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirect</title>
+    <script>
+      // Redirect to the SPA's index.html with the original path as a hash or directly
+      const path = window.location.pathname;
+      window.location.replace(`/birthday-wish/` + (path !== '/' ? '#' + path : ''));
+    </script>
+  </head>
+  <body></body>
+</html>
