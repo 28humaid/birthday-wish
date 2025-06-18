@@ -1,11 +1,12 @@
 import { Box, Slide, Typography, useTheme } from '@mui/material'
-import React from 'react'
+import ImageAndTextLayout from './layouts/ImageAndTextLayout'
 
 const WishForHer = () => {
     const theme = useTheme()
   return (
     <Box sx={{display:'flex',flexDirection:'column',gap:6,px:{xs:'4%',md:"10%"}}}>
-        <Box sx={{display:'flex', flexDirection:{xs:'column',md:'row'},gap:4}}>
+
+        <ImageAndTextLayout columnDirection="column">
             <Slide direction='right' in={true} timeout={1000}>
                 <Typography sx={{color:theme.palette.text.primary,fontSize:theme.typography.wishText.fontSize,maxWidth:{xs:"100%",md:'50%'}}}>Dear <Typography component="span" sx={{fontSize:theme.typography.herNameText.fontSize,fontWeight:500}}>Sadaf</Typography>,<br/>
                 Samajh nahi aa raha kahan se shuru karu...Not because I have too much to say, balki isliye, kyunki kehne ko kuch khas bacha hi nahi... ya shayad sab kuch keh chuka hoon pehle hi!😅 Khair, jokes apart — Wishing you a very very Happy Birthday! 🥳🎂✨
@@ -27,9 +28,9 @@ const WishForHer = () => {
                     />
                 </Box>
             </Slide>
-        </Box>
+        </ImageAndTextLayout>
 
-        <Box sx={{display:'flex', flexDirection:{xs:'column-reverse',md:'row'},gap:4}}>
+        <ImageAndTextLayout columnDirection="column-reverse">
             <Slide direction='right' in={true} timeout={1000}>
                 <Box sx={{display:'flex',justifyContent:'center',alignItems:'center'}}>
                     <img
@@ -53,9 +54,9 @@ const WishForHer = () => {
                     Thoda funny scenario hai, par shayad hamara rishta hi kuch aisa hai — bina roz baat kiye bhi woh connection kabhi gaya nahi... aur dekho, ab toh lagbhag 4 saal ho gaye!💫🕰️
                 </Typography>
             </Slide>
-        </Box>
+        </ImageAndTextLayout>
 
-        <Box sx={{display:'flex', flexDirection:{xs:'column',md:'row'},gap:4}}>
+        <ImageAndTextLayout columnDirection="column">
             <Slide direction='right' in={true} timeout={1000}>
                 <Typography sx={{color:theme.palette.text.primary,fontSize:theme.typography.wishText.fontSize,maxWidth:{xs:"100%",md:'50%'}}}>
                     Anyways...May you get all the happiness and surprises that make you smile when you least expect them. 
@@ -79,7 +80,7 @@ const WishForHer = () => {
                     />
                 </Box>
             </Slide>
-        </Box>
+        </ImageAndTextLayout>
     </Box>
   )
 }
