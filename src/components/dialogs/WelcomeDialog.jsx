@@ -86,12 +86,18 @@ const WelcomeDialog = (props) => {
             <Box sx={{marginBottom:'30px'}}>
               <TextField variant="outlined"
                 sx={{
-                  '& .MuiInputBase-input':{
+                  '& .MuiOutlinedInput-root': {
+                    border: '1px solid #ffec4e',
+                    borderRadius: '10px',
+                    paddingX: 1,
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#ffec4e', // same yellow border on focus
+                    },
+                  },
+                  '& .MuiOutlinedInput-input': {
                     ...theme.typography.questionText,
-                    border:'1px solid #ffec4e',
-                    borderRadius:'10px',
-                    height:'14px'
-                  }
+                    height: '14px',
+                  },
                 }}
                 value={name}
                 onChange={(e)=>{
@@ -106,11 +112,11 @@ const WelcomeDialog = (props) => {
                 sx={{
                   height:'45px',
                   padding:'8px 24px 4px 24px',
-                  border:'1px solid #2c3e50',
+                  border:'1px solid #ffec4e',
                   borderRadius:'10px',
-                  backgroundColor:'#2c3e50',
+                  backgroundColor:'#ffec4e',
                   fontSize:theme.typography.questionText,
-                  color:'#ffec4e',
+                  color:'#1a1a1a',
                   textTransform:'none',
                 }}
                 onClick={()=>{handleProceedClick(name)}}

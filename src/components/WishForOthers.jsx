@@ -3,6 +3,7 @@ import SlideLayout from './layouts/SlideLayout'
 import { useSelector } from 'react-redux'
 import { useState,useEffect } from 'react'
 import RejectionDialog from './dialogs/RejectionDialog'
+import VirusAttackDialog from './dialogs/virusAttackDialog'
 
 const WishForOthers = () => {
     const theme = useTheme()
@@ -10,6 +11,7 @@ const WishForOthers = () => {
     const [first, setFirst] = useState(false);
     const [second, setSecond] = useState(false);
     const [third, setThird] = useState(false);
+    const [fourth, setFourth] = useState(false);
 
   // useEffect to set variables to true at 3s, 6s, 9s
     useEffect(() => {
@@ -19,16 +21,21 @@ const WishForOthers = () => {
 
     const timer2 = setTimeout(() => {
         setSecond(true);
-    }, 7500);
+    }, 8000);
 
     const timer3 = setTimeout(() => {
         setThird(true);
-    }, 9000);
+    }, 10000);
+
+    const timer4 = setTimeout(() => {
+        setFourth(true);
+    }, 15000);
 
     return () => {
         clearTimeout(timer1);
         clearTimeout(timer2);
         clearTimeout(timer3);
+        clearTimeout(timer4);
     };
   }, []); // Empty dependency array to run once on mount
   return (
@@ -50,24 +57,28 @@ const WishForOthers = () => {
         <div>
             <SlideLayout direction="left" timeout={2000} >
                 <Typography sx={{color:theme.palette.text.primary,marginBottom:'24px'}}>
-                    Today isn't just any day… it's yours🌼and I have been waiting all year to say this...
+                    Dear <Typography component="span" sx={{fontSize:theme.typography.herNameText.fontSize,fontWeight:500}}>{userName}</Typography>🎉🎂,
                 </Typography>
             </SlideLayout>
             
             {first && 
-                <Typography sx={{color:theme.palette.text.primary,textTransform:'uppercase',maxWidth:{xs:"100%",md:'50%'},marginBottom:'24px'}}>
-                    Wishing you a very very Happy Birthday <Typography component="span" sx={{fontSize:theme.typography.herNameText.fontSize,fontWeight:500}}>{userName}</Typography>🎉🎂
-                </Typography>
+                <SlideLayout direction="left" timeout={2000}>
+                    <Typography sx={{color:theme.palette.text.primary,maxWidth:{xs:"100%",md:'50%'},marginBottom:'24px'}}>
+                        Today isn't just any day… it's yours🌼and I have been waiting all year to say this...
+                    </Typography>
+                </SlideLayout>
             }
 
-            {second && 
+            {second &&
                 <Typography sx={{color:theme.palette.text.primary}}>
-                    May all your
+                    Wishing you a very very
                 </Typography>
             }
         </div>
 
         {third && <RejectionDialog open={third}/>}
+
+        {fourth && <VirusAttackDialog open={fourth}/>}
     </Box>
   )
 }

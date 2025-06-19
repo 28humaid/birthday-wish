@@ -1,11 +1,36 @@
 import { Box, Slide, Typography, useTheme } from '@mui/material'
 import ImageAndTextLayout from './layouts/ImageAndTextLayout'
 import SlideLayout from './layouts/SlideLayout'
+import Confetti from 'react-confetti';
+import { useWindowSize } from 'react-use';
+import { useState,useEffect } from 'react';
 
 const WishForHer = () => {
     const theme = useTheme()
+    const { width, height } = useWindowSize(); // automatically gets screen size
+    const [showConfetti, setShowConfetti] = useState(false);
+    useEffect(() => {
+    // Delay confetti to appear after a second
+    const timeout = setTimeout(() => setShowConfetti(true), 3000);
+
+    // Optional: Stop it after 8 seconds
+    const stop = setTimeout(() => setShowConfetti(false), 12000);
+
+    return () => {
+      clearTimeout(timeout);
+      clearTimeout(stop);
+    };
+  }, []);
   return (
-    <Box sx={{display:'flex',flexDirection:'column',gap:6,px:{xs:'4%',md:"10%"},paddingBottom:{xs:'8%',sm:'4%'}}}>
+    <Box sx={{display:'flex',flexDirection:'column',gap:6,px:{xs:'4%',md:"10%"},paddingBottom:{xs:'8%',sm:'4%'},overflowX:'hidden'}}>
+        {showConfetti && (
+            <Confetti
+                width={width}
+                height={height}
+                numberOfPieces={1000}
+                recycle={false}
+            />
+        )}
 
         <ImageAndTextLayout columnDirection="column">
             <SlideLayout direction='right'>

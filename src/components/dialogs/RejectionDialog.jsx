@@ -38,16 +38,17 @@ const RejectionDialog = (open) => {
                 width: '100%',
                 height: '100%',
                 backgroundImage: 'url(/birthday-wish/images/rejectionImage.jpg)', // change to your image path
-                backgroundSize: 'contain',
+                backgroundSize: 'cover',
                 backgroundPosition: 'center',
+                backgroundRepeat:'no-repeat',
                 opacity: 0.2, // adjust this for better text visibility
                 // zIndex: 0,
                 }}
             />
 
             {/* Content on top */}
-            <Typography sx={{ zIndex: 1, color: theme.palette.text.primary,textAlign:'center',maxWidth:'80%',marginTop:'42%' }}>
-                You’re not Anion, are you?<br/>And let’s be honest — it’s not even your birthday today. 🫠<br/>This wasn’t made for you.
+            <Typography sx={{ zIndex: 1, color: theme.palette.text.primary,textAlign:'center',maxWidth:'80%',marginTop:'42%',fontSize:theme.typography.wishText.fontSize }}>
+                You’re not Anion, are you?<br/>And it’s not even your birthday today. 🫠<br/>This wasn’t made for you.
             </Typography>
             </DialogContent>
     </Dialog>
