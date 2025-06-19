@@ -16,7 +16,7 @@ const WishForHer = () => {
             <SlideLayout  direction='left'>
                 <Box sx={{display:'flex',justifyContent:'center',alignItems:'center'}}>
                     <img
-                        src='/birthday-wish/images/wishImage5.png'
+                        src='/birthday-wish/images/wishImage5.jpg'
                         style={{
                             width:'100%',
                             maxWidth:'400px',
@@ -35,7 +35,7 @@ const WishForHer = () => {
             <SlideLayout direction='right'>
                 <Box sx={{display:'flex',justifyContent:'center',alignItems:'center'}}>
                     <img
-                        src='/birthday-wish/images/wishImage4.png'
+                        src='/birthday-wish/images/wishImage4.jpg'
                         style={{
                             width:'100%',
                             maxWidth:'400px',
@@ -68,7 +68,7 @@ const WishForHer = () => {
             <SlideLayout direction='left'>
                 <Box sx={{display:'flex',justifyContent:'center',alignItems:'center'}}>
                     <img
-                        src='/birthday-wish/images/wishImage1.png'
+                        src='/birthday-wish/images/wishImage1.jpg'
                         style={{
                             width:'100%',
                             maxWidth:'400px',

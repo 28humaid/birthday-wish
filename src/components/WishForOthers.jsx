@@ -35,7 +35,7 @@ const WishForOthers = () => {
     <Box sx={{display:'flex',flexDirection:{xs:'column-reverse',md:'row'},gap:6,px:{xs:'4%',md:"10%"},paddingBottom:{xs:'8%',sm:'4%'}}}>
         <Box sx={{display:'flex',justifyContent:'center',alignItems:'center'}}>
             <img
-                src='/birthday-wish/images/cakeImage.png'
+                src='/birthday-wish/images/cakeImage.jpg'
                 style={{
                     width:'100%',
                     maxWidth:'400px',

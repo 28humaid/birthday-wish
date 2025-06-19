@@ -27,7 +27,7 @@ function App() {
 
           
             <img
-              src="/birthday-wish/images/homePageImage.png"
+              src="/birthday-wish/images/homePageImage.jpg"
               style={{
                 maxWidth:'25%',
                 height:'auto',

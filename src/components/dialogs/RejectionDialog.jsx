@@ -37,7 +37,7 @@ const RejectionDialog = (open) => {
                 left: 0,
                 width: '100%',
                 height: '100%',
-                backgroundImage: 'url(/birthday-wish/images/rejectionImage.png)', // change to your image path
+                backgroundImage: 'url(/birthday-wish/images/rejectionImage.jpg)', // change to your image path
                 backgroundSize: 'contain',
                 backgroundPosition: 'center',
                 opacity: 0.2, // adjust this for better text visibility
