@@ -9,8 +9,15 @@ const WelcomeDialog = (props) => {
     const theme = useTheme()
     const [loading,setLoading] = useState(true)
     const [name,setName] = useState("")
+    const [notProceed,setNotProceed] = useState(true)
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
+    const handleInputChange = (value) => {
+      setName(value); // Update name state
+      setNotProceed(value === ''); // Set notProceed based on value
+      // console.log('Input value:', value);
+    };
 
     const handleProceedClick = (value) =>{
       // console.log(value);
@@ -88,7 +95,7 @@ const WelcomeDialog = (props) => {
                 }}
                 value={name}
                 onChange={(e)=>{
-                  setName(e.target.value)
+                  handleInputChange(e.target.value)
                   // console.log(name)
                 }}
               />
@@ -107,6 +114,7 @@ const WelcomeDialog = (props) => {
                   textTransform:'none',
                 }}
                 onClick={()=>{handleProceedClick(name)}}
+                disabled={notProceed}
               >
                 Proceed
               </Button>
