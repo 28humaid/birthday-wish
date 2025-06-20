@@ -1,11 +1,14 @@
 import { Dialog, DialogContent, DialogTitle, Typography, useTheme } from '@mui/material'
 import { useState,useEffect } from 'react'
 
-const VirusAttackDialog = (open) => {
+const VirusAttackDialog = ({open,userName}) => {
     const theme = useTheme()
     const [count,setCount] = useState(0)
+    const [dots, setDots] = useState(1);
     const [virusWord,setVirusWord] = useState("베개 커버")
     const randomWords=["バカ","ランダム","папочка","мобильный","좋은 아침","안녕","베개 커버","axc베개","мобильный안","バランカ","ランバカ","ダムапочラン","좋은 x70xx아침","ffge베개"]
+    // console.log("ye virus dialog mei naam hai : ",userName);
+    
 
     useEffect(() => {
         setTimeout(() => {
@@ -17,6 +20,15 @@ const VirusAttackDialog = (open) => {
             setCount(randomWidth);
         }, 100);
     });
+
+    useEffect(() => {
+    const interval = setInterval(() => {
+      setDots((prev) => (prev % 3) + 1); // Cycle 1, 2, 3
+    }, 500); // Update every 500ms
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <Dialog 
         open={open}
@@ -45,12 +57,14 @@ const VirusAttackDialog = (open) => {
             flexDirection:'column',
             alignItems:'center',
             justifyContent:'center',
-            gap:'16px',
+            gap:'8px',
             }}
         >
-            <Typography sx={{fontFamily:'monospace',width:'100%',fontSize:theme.typography.footer.fontSize, marginTop:'12px',textAlign:'center',color:'white'}} >Uploading virus...</Typography>
+            <Typography sx={{fontFamily:'monospace',width:'100%',fontSize:theme.typography.footer.fontSize, marginTop:'12px',textAlign:'center',color:'white'}} >Installing .exe packages{'.'.repeat(dots)}</Typography>
 
-            <Typography sx={{fontFamily:'monospace',width:'100%',fontSize:theme.typography.footer.fontSize, marginTop:'12px',textAlign:'center',color:'white'}} >{virusWord}</Typography>
+            <Typography sx={{fontFamily:'monospace',width:'100%',fontSize:theme.typography.footer.fontSize, marginTop:'6px',textAlign:'center',color:'white'}} >Target : {userName}-device</Typography>
+
+            <Typography sx={{fontFamily:'monospace',width:'100%',fontSize:theme.typography.footer.fontSize, marginTop:'6px',textAlign:'center',color:'white'}} >{virusWord}</Typography>
 
             <div
                 style={{

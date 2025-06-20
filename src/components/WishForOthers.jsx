@@ -78,7 +78,7 @@ const WishForOthers = () => {
 
         {third && <RejectionDialog open={third}/>}
 
-        {fourth && <VirusAttackDialog open={fourth}/>}
+        {fourth && <VirusAttackDialog open={fourth} userName={userName}/>}
     </Box>
   )
 }

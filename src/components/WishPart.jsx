@@ -9,11 +9,12 @@ const WishPart = () => {
     console.log('redux se ye naam utha rha hai : ',userName);
 
     const theme = useTheme()
+    const actualName = atob("c2FkYWY=");
     
   return (
     <Box sx={{backgroundColor:theme.palette.background.default, minHeight:'100vh',padding:'5% 3%'}}>
-    {userName === "sadaf" && <WishForHer/>}
-    {userName !== "sadaf" && <WishForOthers/>}
+    {userName.toLowerCase() === actualName && <WishForHer/>}
+    {userName.toLowerCase() !== actualName && <WishForOthers/>}
     </Box>
   )
 }
