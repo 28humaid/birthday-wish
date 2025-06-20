@@ -18,7 +18,7 @@ const VirusAttackDialog = ({open,userName}) => {
 
             setVirusWord(randomWords[randomIndex]);
             setCount(randomWidth);
-        }, 350);
+        }, 400);
     });
 
     useEffect(() => {
